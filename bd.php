@@ -1,5 +1,5 @@
 <?php
-$database = "test.mdb";
+$database = "Db.accdb";
 $conn = new PDO("odbc:Driver={Microsoft Access Driver (*.mdb)};Dbq=$database;Uid=;Pwd=;");
 
 $query = "SELECT * FROM votre_table WHERE votre_colonne = :valeur";
