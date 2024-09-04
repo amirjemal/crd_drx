@@ -15,7 +15,7 @@
             $("#rechercher").click(function() {
                 var valeur = $("#valeur").val();
                 $.ajax({
-                    url: 'votre_script.php',
+                    url: 'bd.php',
                     type: 'GET',
                     data: { valeur: valeur },
                     success: function(data) {
