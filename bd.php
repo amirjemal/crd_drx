@@ -2,7 +2,7 @@
 $database = "Db.accdb";
 $conn = new PDO("odbc:Driver={Microsoft Access Driver (*.mdb)};Dbq=$database;Uid=;Pwd=;");
 
-$query = "SELECT * FROM votre_table WHERE votre_colonne = :valeur";
+$query = "SELECT * FROM demandes WHERE matricule = :valeur";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':valeur', $_GET['valeur']);
 $stmt->execute();
