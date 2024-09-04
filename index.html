@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion à Access avec jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="valeur" placeholder="Entrez une valeur">
+    <button id="rechercher">Rechercher</button>
+    <div id="resultats"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#rechercher").click(function() {
+                var valeur = $("#valeur").val();
+                $.ajax({
+                    url: 'votre_script.php',
+                    type: 'GET',
+                    data: { valeur: valeur },
+                    success: function(data) {
+                        var resultats = JSON.parse(data);
+                        $("#resultats").empty();
+                        $.each(resultats, function(index, element) {
+                            $("#resultats").append("<p>" + element.nom_de_la_colonne + "</p>");
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
